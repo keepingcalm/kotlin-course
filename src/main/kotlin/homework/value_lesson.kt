@@ -1,4 +1,4 @@
-package ru.kotlin.lesson03.homework
+package ru.kotlin.homework
 
 val name: String = "Summer"   /// неизменяемая переманная - хороший тон использовать такие в основном
 

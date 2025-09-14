@@ -1,4 +1,4 @@
-package ru.kotlin.lesson03.homework
+package ru.kotlin.homework
 
 class class_homework {
 
