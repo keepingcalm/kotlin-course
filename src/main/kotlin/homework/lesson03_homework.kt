@@ -148,4 +148,4 @@ package ru.kotlin.homework
     lateinit var maxAmountOfGuests: Int = 82983
 
     // 47. Количество часов, отведенное каждой команде для работы над проектом.
-    val HoursForProject: Int = 24
+    val HoursPerProject: Int = 24
