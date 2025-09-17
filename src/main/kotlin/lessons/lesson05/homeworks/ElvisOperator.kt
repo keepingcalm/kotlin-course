@@ -7,10 +7,10 @@ fun main() {
     println(newSoundLevel)
 
     val priceGoods: Double? = null
-    val priceDelivery: Double = 88.88
+    val costDelivery: Double = 88.88
     val priceInsurance: Double = (priceGoods ?: 50.00) / 200.00
-    val totalPriceDelivery = priceDelivery + priceInsurance
-    println(totalPriceDelivery)
+    val totalCostDelivery = costDelivery + priceInsurance
+    println(totalCostDelivery)
 
     val bar: Int? = null
     val message = (bar ?: "Error")
