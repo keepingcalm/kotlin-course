@@ -2,7 +2,7 @@ package ru.kotlin.homework
 
 class class_homework {
 
-    val name: String = 'Summer'
+    //val name: String = 'Summer'
 
     var age: Int = 30
 
