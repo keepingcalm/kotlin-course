@@ -1,6 +1,16 @@
 package ru.kotlin.lessons.lesson06.homeworks
 
 fun main() {
+    fun monthCount (4)
+    fun dogAgePrint (4)
+    fun distanceLenght (9.99)
+    fun bonusCount (10.00)
+    fun fileTypePrint ("Текстовый документ")
+    fun temperatureConvert (10.00, "C")
+    fun clothesRecomendation (10)
+    fun filmSuggestAge (16)
+
+}
     //Задание 1: "Определение сезона"
     //Напишите функцию, которая на основе номера месяца распечатывает сезон года. Номера месяцев начинаются с единицы.
     fun monthCount (monthNumber: Byte) {
@@ -99,4 +109,4 @@ fun main() {
             > 18 -> println("18+")
         }
     }
-}
+
