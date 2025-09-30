@@ -1,19 +1,19 @@
 package ru.kotlin.lessons.lesson06.homeworks
 
 fun main() {
-    fun monthCount (4)
-    fun dogAgePrint (4)
-    fun distanceLenght (9.99)
-    fun bonusCount (10.00)
-    fun fileTypePrint ("Текстовый документ")
-    fun temperatureConvert (10.00, "C")
-    fun clothesRecomendation (10)
-    fun filmSuggestAge (16)
+    //fun monthCount (4)
+    //fun dogAgePrint (4)
+    //fun distanceLenght (9.99)
+    //fun bonusCount (10.00)
+    //fun fileTypePrint ("Текстовый документ")
+    //fun temperatureConvert (10.00, "C")
+    //fun clothesRecomendation (10)
+    //fun filmSuggestAge (16)
 
 }
     //Задание 1: "Определение сезона"
     //Напишите функцию, которая на основе номера месяца распечатывает сезон года. Номера месяцев начинаются с единицы.
-    fun monthCount (monthNumber: Byte) {
+    fun monthCount (monthNumber: Int) {
         when (monthNumber) {
             12 -> println("Winter")
             in 1..2 -> println("Winter")
@@ -49,7 +49,7 @@ fun main() {
     //Клиенты интернет-магазина получают бонусные баллы за покупки. Напишите функцию, которая принимает сумму покупки и печатает в консоль количество бонусных баллов: 2 балла за каждые 100 рублей при сумме покупки до 1000 рублей и 3 балла за каждые 100 рублей при сумме свыше этого.
 
     fun bonusCount (price: Double) {
-    if (price in 100.00..1000.00) PLEASE HELP
+    //if (price in 100.00..1000.00) PLEASE HELP
     }
 
     //Задание 5: "Определение типа документа"
@@ -75,11 +75,11 @@ fun main() {
         when (scale) {
             "C" -> {
                 temperature == (temperature * 9 / 5) + 32
-                println(temperature) print ("F")
+                //println(temperature) print("F")
             }
             "F" -> {
                 temperature == (temperature - 32) * (5 / 9)
-                println(temperature) print ("C")
+                //println(temperature) print ("C")
             }
             else -> {
                 println("Error")
@@ -94,8 +94,8 @@ fun main() {
             in -30..10 -> println("куртка и шапка")
             in 10..18 -> println("ветровка")
             in 18..35 -> println("футболка и щшорты")
-            < -30 -> println("Не выходить из дома")
-            > -35 -> println("Не выходить из дома")
+            //< -30 > println("Не выходить из дома")
+            //> -35 -> println("Не выходить из дома")
         }
     }
 
@@ -106,7 +106,7 @@ fun main() {
         when (age) {
             in 0..9 -> println("Детские")
             in 10..18 -> println("Подростковые")
-            > 18 -> println("18+")
+            //> 18 -> println("18+")
         }
     }
 

@@ -12,6 +12,6 @@ val lazyValue: String by lazy {
     "Hi, it's lazy string"
 } /// используется только для val, используется в случаях, когда переменная не нужна сразу, но при вызове ее выполнится код внутри
 
-var speed: Double = null /// double дробное число, если стоит знак вопроса, то переменная может быть nullable
+//var speed: Double = null /// double дробное число, если стоит знак вопроса, то переменная может быть nullable
 
 var score: Int = 10 //
