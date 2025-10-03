@@ -80,8 +80,8 @@ fun exerc5 (arg: String) {
 
 fun exerc6 (arg: String) {
     var counter = ""
-    val words = arg.split(" ")
-    for (i in words) {
+    val trimWords = arg.split(" ")
+    for (i in trimWords) {
         counter += i[0].uppercase()
     }
     println(counter)
