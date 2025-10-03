@@ -26,7 +26,7 @@ fun main () {
     exerc3(arg = "4539 1488 0343 6467")
     exerc4(arg = "username@example.com")
     exerc5(arg = "D:/good.themes/dracula.theme")
-    exerc6(abbv = "Готовность Руинить Указана Талантливо")
+    exerc6(arg = "Готовность Руинить Указана Талантливо")
 }
 
 fun exerc1  (arg: String){
@@ -78,11 +78,11 @@ fun exerc5 (arg: String) {
 //У вас есть фраза, например "Котлин лучший язык программирования" (может быть любой с разделителями слов - пробел). Создайте аббревиатуру из начальных букв слов (например, "ООП").
 //Используйте split. Используйте for для перебора слов. Используйте var переменную для накопления первых букв.
 
-fun exerc6 (abbv: String) {
-    val abbv = ""
-    val words = abbv.split(" ")
-    for (word in words) {
-        abbv = words
+fun exerc6 (arg: String) {
+    var counter = ""
+    val words = arg.split(" ")
+    for (i in words) {
+        counter += i[0].uppercase()
     }
-    println(abbv)
+    println(counter)
 }
