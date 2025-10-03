@@ -71,7 +71,8 @@ fun exerc4 (arg: String) {
 
 fun exerc5 (arg: String) {
     val stringTrim = arg.split("/")
-    println(stringTrim[2])
+        .reversed()
+    println(stringTrim[0])
 }
 
 //Создание аббревиатуры из фразы.
