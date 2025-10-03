@@ -35,7 +35,7 @@ fun exerc1  (arg: String){
         arg.startsWith("Я не уверен") -> "$arg, но моя интуиция говорит об обратном"
         arg.contains("катастрофа") -> arg.replace("катастрофа","интересное событие")
         arg.endsWith("без проблем") -> arg.replace("без проблем","с парой интересных вызовов на пути")
-        //arg.
+        !arg.contains(" ") -> "Иногда, $arg, но не всегда"
         else -> arg
     }
     println(result1)
