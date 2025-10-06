@@ -53,7 +53,7 @@ fun main() {
     a5.add(8.23F)
     a5.add(1.22F)
 
-    for (element in a5.) {
+    for (element in a5) {
         println(element)
     }
 
