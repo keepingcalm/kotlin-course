@@ -1,5 +1,7 @@
 package ru.kotlin.lessons.lesson09.homeworks
 
+import ru.kotlin.homework.PI
+
 fun main(){
 
 //    Работа с массивами Array
@@ -110,6 +112,55 @@ fun main(){
 
     //Создайте список целых чисел и найдите в нем минимальный и максимальный элементы используя цикл.
     val list10: List<Int> = listOf(1, 4, 5, 7, 8, 99)
+    var min = list10[0]
+    var max = list10[0]
+    for (i in list10) {
+        if (i < min) {
+            min = i
+        }
+        if (i > max) {
+            max = i
+        }
+    }
+    println("Min element: $min + Max element: $max")
+
+    //Имея список целых чисел, создайте новый список, содержащий только четные числа из исходного списка используя цикл.
+    val list11: List<Int> = listOf(1, 2, 4, 5, 7, 8, 9, 10, 13, 14)
+    val list112: MutableList<Int> = mutableListOf()
+    for (i in list11) {
+        if (i % 2 == 0) {
+         list112.add(i)
+        }
+    }
+    println(list112)
+
+// Работа с Множествами Set
+
+    //Создайте пустое неизменяемое множество целых чисел.
+    val set1: Set<Int> = emptySet()
+
+    //Создайте неизменяемое множество целых чисел, содержащее три различных элемента (например, 1, 2, 3).
+    val set2: Set<Int> = setOf(1, 2, 3)
+
+    //Создайте изменяемое множество строк и инициализируйте его несколькими значениями (например, "Kotlin", "Java", "Scala").
+    val set3: MutableSet<String> = mutableSetOf("Kotlin", "Java", "Scala")
+
+    //Имея изменяемое множество строк, добавьте в него новые элементы (например, "Swift", "Go").
+    val set4: MutableSet<String> = mutableSetOf()
+    set4.add("Swift")
+    set4.add("Go")
+
+    // Имея изменяемое множество целых чисел, удалите из него определенный элемент (например, 2).
+    val set5: MutableSet<Int> = mutableSetOf(1, 2, 4, 5, 6, 7)
+    set5.remove(2)
+
+    //Создайте множество целых чисел и используйте цикл для вывода каждого элемента на экран.
+    val set6: Set<Int> = setOf(1, 2, 3, 4, 5, 6, 7)
+    for (i in set6) {
+        println(i)
+    }
+
+    //Создай функцию, которая принимает множество строк (set) и строку и проверяет, есть ли в множестве указанная строка. Нужно вернуть булево значение true если строка есть. Реши задачу через цикл.
 
 
 
