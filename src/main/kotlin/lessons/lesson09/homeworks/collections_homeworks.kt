@@ -1,6 +1,9 @@
 package ru.kotlin.lessons.lesson09.homeworks
 
 fun main(){
+
+//    Работа с массивами Array
+
     //Создайте массив из 5 целых чисел и инициализируйте его значениями от 1 до 5.
     val numbers1: Array<Int> = arrayOf(1, 2, 3, 4, 5)
 //    //Создайте пустой массив строк размером 10 элементов.
@@ -58,24 +61,57 @@ fun main(){
             }
         }
     }
-}
 
-//fun case4 (arg: Int) {
-//    val case4 = IntArray(5)
-//    for (index in case4.indices) {
-//        case4[index] = index * 3
-//    }
-//    println("Вот: ")
-//    for (index in case4.indices) {
-//        print("${case4[index]} ")
-//    }
-//}
+//Работа со списками List
 
-fun searchSubString (array: Array<String>, search: String) {
-    for (elem in array) {
-        if (elem.contains(search)) {
-            println("Found piece: $elem")
-            return
-        }
+    //Создайте пустой неизменяемый список целых чисел.
+    val list1: List<Int> = listOf()
+
+    //Создайте неизменяемый список строк, содержащий три элемента (например, "Hello", "World", "Kotlin").
+    val list2: List<String> = listOf("hello", "world", "kotlin")
+
+    //Создайте изменяемый список целых чисел и инициализируйте его значениями от 1 до 5.
+    val list3: MutableList<Int> = mutableListOf(1, 2, 3, 4, 5)
+
+    //Имея изменяемый список целых чисел, добавьте в него новые элементы (например, 6, 7, 8).
+    val list4: MutableList<Int> = mutableListOf(1, 2, 4, 5)
+    list4.add(6)
+    list4.add(7)
+    list4.add(8)
+    //Имея изменяемый список строк, удалите из него определенный элемент (например, "World").
+    val list5: MutableList<String> = mutableListOf("World", "adsda")
+    list5.remove("World")
+
+    //Создайте список целых чисел и используйте цикл для вывода каждого элемента на экран.
+    val list6: List<Int> = listOf(1, 2, 4, 4, 5)
+    for (i in list6) {
+        println(i)
     }
+
+    //Создайте список строк и получите из него второй элемент, используя его индекс.
+    val list7: List<String> = listOf("dkfjk", "slfkslfd", "sflkjsdfk", "woeiwo")
+    println(list7[1])
+
+    //Имея изменяемый список чисел, измените значение элемента на определенной позиции (например, замените элемент с индексом 2 на новое значение).
+    val list8: MutableList<Int> = mutableListOf<Int>(1, 2, 3, 4, 5, 67)
+    list8[2] = 33
+
+    //Создайте два списка строк и объедините их в один новый список, содержащий элементы обоих списков. Реши задачу с помощью циклов.
+    val list9: List<String> = listOf("skdfkjd", "adlks", "sldksld")
+    val list92: List<String> = listOf("22skdfkjd", "22adlks", "22sldksld")
+    val sumOfList = mutableListOf<String>()
+    for (i in list9) {
+        sumOfList.add(i)
+    }
+    for (i in list92) {
+        sumOfList.add(i)
+    }
+    println(sumOfList)
+
+    //Создайте список целых чисел и найдите в нем минимальный и максимальный элементы используя цикл.
+    val list10: List<Int> = listOf(1, 4, 5, 7, 8, 99)
+
+
+
 }
+
