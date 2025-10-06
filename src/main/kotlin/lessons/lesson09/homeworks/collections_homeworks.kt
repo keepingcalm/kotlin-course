@@ -23,12 +23,41 @@ fun main(){
     //Создайте два массива целых чисел одинаковой длины. Создайте третий массив, вычев значения одного из другого. Распечатайте полученные значения.
     val array7: Array<Int> = arrayOf(1, 6, 7, 8, 3, 7)
     val arrayTwo: Array<Int> = arrayOf(100, 6, 2, 3, 7, 5)
-    val arrayThree = IntArray(arrayTwo)
+    val arrayThree = IntArray(arrayTwo.size)
     for (i in array7.indices) {
         arrayThree[i] = array7[i] - arrayTwo[i]
     }
     //Создайте массив целых чисел. Найдите индекс элемента со значением 5. Если значения 5 нет в массиве, печатаем -1. Реши задачу через цикл while.
-
+    val array8: Array<Int> = arrayOf(1, 5, 2, 6, 4, 6)
+    var index = 0
+    var foundInd = -1
+    while (index < array8.size) {
+        if (array8[index] == 5) {
+           foundInd = index
+           break
+        }
+        index++
+    }
+    println(foundInd)
+    //Создайте массив целых чисел. Используйте цикл для перебора массива и вывода каждого элемента в консоль. Напротив каждого элемента должно быть написано “чётное” или “нечётное”.
+    val array9: Array<Int> = arrayOf(1, 2, 3, 4, 5, 6, 7)
+    for (numb in array9) {
+        if (numb % 2 == 0) {
+            println("$numb - even number")
+        } else {
+            println("$numb - odd number")
+        }
+    }
+    //Создай функцию, которая принимает массив строк и строку для поиска. Функция должна находить в массиве элемент, в котором принятая строка является подстрокой (метод contains()). Распечатай найденный элемент.
+    val array: Array<String> = arrayOf()
+    fun searchSubString (array: Array<String>, search: String) {
+        for (elem in array) {
+            if (elem.contains(search)) {
+                println("Found piece: $elem")
+                return
+            }
+        }
+    }
 }
 
 //fun case4 (arg: Int) {
@@ -41,3 +70,12 @@ fun main(){
 //        print("${case4[index]} ")
 //    }
 //}
+
+fun searchSubString (array: Array<String>, search: String) {
+    for (elem in array) {
+        if (elem.contains(search)) {
+            println("Found piece: $elem")
+            return
+        }
+    }
+}
