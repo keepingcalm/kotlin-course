@@ -2,16 +2,16 @@ package ru.kotlin.lessons.lesson09.homeworks
 
 import ru.kotlin.homework.PI
 
-fun main(){
+fun main() {
 
 //    Работа с массивами Array
 
     //Создайте массив из 5 целых чисел и инициализируйте его значениями от 1 до 5.
     val numbers1: Array<Int> = arrayOf(1, 2, 3, 4, 5)
 //    //Создайте пустой массив строк размером 10 элементов.
-    val emptyArray2: Array<String>  = Array(10) {""}
+    val emptyArray2: Array<String> = Array(10) { "" }
 //    //Создайте массив из 5 элементов типа Double и заполните его значениями, являющимися удвоенным индексом элемента.
-    val doubleArray3= DoubleArray(5) { index -> index * 2.0}
+    val doubleArray3 = DoubleArray(5) { index -> index * 2.0 }
 //    //Создайте массив из 5 элементов типа Int. Используйте цикл, чтобы присвоить каждому элементу значение, равное его индексу, умноженному на 3.
     val case4 = IntArray(5)
     for (index in case4.indices) {
@@ -38,8 +38,8 @@ fun main(){
     var foundInd = -1
     while (index < array8.size) {
         if (array8[index] == 5) {
-           foundInd = index
-           break
+            foundInd = index
+            break
         }
         index++
     }
@@ -55,7 +55,7 @@ fun main(){
     }
     //Создай функцию, которая принимает массив строк и строку для поиска. Функция должна находить в массиве элемент, в котором принятая строка является подстрокой (метод contains()). Распечатай найденный элемент.
     val array: Array<String> = arrayOf()
-    fun searchSubString (array: Array<String>, search: String) {
+    fun searchSubString(array: Array<String>, search: String) {
         for (elem in array) {
             if (elem.contains(search)) {
                 println("Found piece: $elem")
@@ -129,7 +129,7 @@ fun main(){
     val list112: MutableList<Int> = mutableListOf()
     for (i in list11) {
         if (i % 2 == 0) {
-         list112.add(i)
+            list112.add(i)
         }
     }
     println(list112)
@@ -161,9 +161,23 @@ fun main(){
     }
 
     //Создай функцию, которая принимает множество строк (set) и строку и проверяет, есть ли в множестве указанная строка. Нужно вернуть булево значение true если строка есть. Реши задачу через цикл.
-    val
+    fun set7(set: Set<String>, words: String): Boolean {
+        for (i in set) {
+            if (i == words) {
+                return true
+            }
+        }
+        return false
+    }
 
-
-
+    //Создайте множество строк и конвертируйте его в изменяемый список строк с использованием цикла.
+    val setStrings: Set<String> = setOf("cow", "cat", "dog")
+    val list999: MutableList<String> = mutableListOf()
+    for (i in setStrings) {
+        list999.add(i)
+    }
+    println(list999)
 }
+
+
 
