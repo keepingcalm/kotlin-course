@@ -19,16 +19,29 @@ fun main() {
     val map4 = map3["1f"]
     val map41 = map3["qwe"]
 
+    val result = map3["1f"]
+    if (result != null) {
+        println(result)
+    } else {
+        println("Not found")
+    }
+
 //    Удалите определенный элемент из изменяемого словаря по его ключу.
     val map5 = mutableMapOf<String, String>("dssdf" to "sdsd", "vcvc" to "cvbcb")
     map5.remove("dssf")
 
 //    Создайте словарь (ключи Double, значения Int) и выведи в цикле результат деления ключа на значение. Не забудь обработать деление на 0 (в этом случае выведи слово “бесконечность”)
-    val map6: Map<Double, Int> = mapOf(2.33 to 323, 4.55 to 444, 4.55 to 21)
-
+    val map6 = mutableMapOf(2.33 to 323, 4.55 to 444, 4.55 to 21, 5.6 to 0)
+    for ((d, i) in map6) {
+        if (i == 0) println("infinity")
+    } else println(d % i)
+    println()
+}
 
 
 //    Измените значение для существующего ключа в изменяемом словаре.
+    map6[5.6] = 99
+    println(map5)
 
 
 //    Создайте два словаря и объедините их в третьем изменяемом словаре через циклы.
