@@ -39,7 +39,7 @@ fun a8 (a8: Int): String? {
 }
 //9 Не принимает аргументов и возвращает список nullable строк.
 fun a9(): List<String?> {
-    return listOf("sdsd", "asad", null)
+    return listOf("test", "asad", null)
 }
 //10 Принимает nullable строку и nullable целое число и возвращает nullable булево значение.
 fun a10 (a10: String?, a11: Int?): Boolean? {
