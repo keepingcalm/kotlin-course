@@ -55,7 +55,8 @@ fun multiplyByTwo (x1: Int): Int {
 //2 Создайте функцию isEven, которая принимает целое число и возвращает true, если число чётное, и false в противном случае.
 fun isEven (x2: Int): Boolean {
     return if (x2 % 2 == 0) {
-     true} else return false
+     true
+    } else return false
 }
 //3 Напишите функцию printNumbersUntil, которая принимает целое число n и выводит на экран числа от 1 до n. Если число n меньше 1, функция должна прекратить выполнение с помощью return без вывода сообщений.
 fun printNumbersUntil (x3: Int) {
