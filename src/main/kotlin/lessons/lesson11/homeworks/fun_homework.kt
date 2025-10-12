@@ -26,7 +26,7 @@ fun a5 (a5: String?): Int? {
 }
 //6 Не принимает аргументов и возвращает nullable вещественное число.
 fun a6 (): Double? {
-    return 5.66
+    return null
 }
 
 //7 Принимает nullable список целых чисел, не возвращает значения и доступна только в текущем файле.
@@ -64,6 +64,7 @@ fun printNumbersUntil (x3: Int) {
         println(i)
     }
 }
+
 //4 Создайте функцию findFirstNegative, которая принимает список целых чисел и возвращает первое отрицательное число в списке. Если отрицательных чисел нет, функция должна вернуть null.
 fun findFirstNegative (x4: List<Int>): Int? {
     for (num in x4) {
