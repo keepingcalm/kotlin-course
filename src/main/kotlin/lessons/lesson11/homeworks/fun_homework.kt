@@ -21,7 +21,7 @@ fun a4 (a4: List<Int>): Double {
     return a4.average()
 }
 //5 Принимает nullable строку и возвращает её длину в виде nullable целого числа и доступна только в текущем файле.
-fun a5 (a5: String?): Int? {
+private fun a5 (a5: String?): Int? {
     return a5?.length
 }
 //6 Не принимает аргументов и возвращает nullable вещественное число.
@@ -35,7 +35,7 @@ private fun a7 (a7: List<Int>?): Unit {
 }
 //8 Принимает целое число и возвращает nullable строку.
 fun a8 (a8: Int): String? {
-    return "sss"
+    return null
 }
 //9 Не принимает аргументов и возвращает список nullable строк.
 fun a9(): List<String?> {
