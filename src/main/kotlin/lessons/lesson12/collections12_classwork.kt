@@ -150,6 +150,12 @@ fun main() {
     val ex5 = ex.filter { it in 18.. 30 }
     println(ex5)
 
+    val ex6 = ex.filter { it != null } // OR val ex61 = ex.filterNotNull()
+    println(ex6)
+
+    val ex7: List<String> = listOf("sdsfdsf", "vcvcv", "syuyyu")
+
+
 }
 
 
