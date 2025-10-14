@@ -2,7 +2,7 @@ package ru.kotlin.lessons.lesson12
 
 fun main() {
 
-    val numbers = listOf(-1, 2, -3, 4, -5, 8, 264) // .forEach
+    val numbers = listOf(-1, 2, -3, 4, -5, 8, 264) // .forEach { } и можно выполняемый код
 
     val positive = mutableListOf<Int>()
 
@@ -47,6 +47,18 @@ fun main() {
     val setOfNumbers = setOf(3, 4, 5, -5, 14)
     val firstElement = setOfNumbers.first()
     val lastElement = setOfNumbers.last()
+    var t = 3 // альтернативный способ получить 1 элемент, но слишком много кода
+    for (i in setOfNumbers) {
+        t = i
+        break
+    }
+
+    val firstPositive = numbers.firstOrNull { it > 0 }
+    println(firstPositive) // вывод 2
+    val nullable = numbers.firstOrNull { it > 1000}
+    println(nullable) // вывод null
+    val elementOfElse = numbers.getOrElse(10) { -1 }
+    println(elementOfElse) // вывод -1
 
  }
 
