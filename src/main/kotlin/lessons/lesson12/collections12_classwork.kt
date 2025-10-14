@@ -117,6 +117,38 @@ fun main() {
     val groupedBySign: Map<String, List<Int>> = numbers.groupBy { if (it > 0) "Positive" else "Negative" }
     println(groupedBySign) // output {Negative=[-1, -3, -5], Positive=[2, 4, 8, 264]}
 
+    val distinctNumbers = listOf(1, 3, 3, 4, 5, 6, 7, 8, 8).distinct()
+    println(distinctNumbers) // output [1, 3, 4, 5, 6, 7, 8]
+
+    println(numbers.take(4)) // вывод первых 4х значений [-1, 2, -3, 4]
+
+    println(numbers.takeLast(3)) // вывод из 3х последних значений [-5, 8, 264]
+
+    println(numbers.drop(3)) // отдаст все кроме первых трех элементов [4, -5, 8, 264]
+
+    val ex = listOf(1, 2, 4, 5, -6)
+    if (ex.size > 5) {
+    }
+    if (ex.isNotEmpty()) {
+    }
+
+    val ex1 = ex.getOrElse(88) {5} // взять элемент с индексом 88, а если его нет - взять элемент из 5 индекса
+    println(ex1)
+
+    val ex2 = ex.joinToString("& ")
+    println(ex2)
+
+    val sum = ex.sum()
+    println(sum)
+
+    val ex3 = ex.firstOrNull() { it < 0 }
+    println(ex3)
+
+    val ex4 = ex.contains(6)
+    println(ex4)
+
+    val ex5 = ex.filter { it in 18.. 30 }
+    println(ex5)
 
 }
 
