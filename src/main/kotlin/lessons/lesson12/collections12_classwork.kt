@@ -153,8 +153,20 @@ fun main() {
     val ex6 = ex.filter { it != null } // OR val ex61 = ex.filterNotNull()
     println(ex6)
 
-    val ex7: List<String> = listOf("sdsfdsf", "vcvcv", "syuyyu")
+    val ex7: List<String> = listOf("sdsfdsf", "0000vcvcv", "syuyyu", "00zxczccz", "ghghgh")
+    val ex71 = ex7.map { it.length }
+    println(ex71)
 
+    val ex8 = ex7.associate { it to it.reversed() }
+    println(ex8)
+
+    val ex9 = ex7.sorted()
+    println(ex9)
+
+    ex.forEach { println(it*it) }
+
+    val ex10 = ex7.groupBy { it.first() }
+    println(ex10)
 
 }
 
