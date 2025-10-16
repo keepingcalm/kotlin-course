@@ -1,5 +1,7 @@
 package ru.kotlin.lessons.lesson12.homeworks
 
+import ru.kotlin.homework.isOpen
+
 fun main () {
 //Задачи на приведение коллекции к значению
 //1 Проверить, что размер коллекции больше 5 элементов.
@@ -56,7 +58,7 @@ fun main () {
     println(res13)
 
 // 14 Очистить текстовую коллекцию от null элементов
-    val homeworkText = listOf<String?>("ldsad", null, "sdsdsd", "eportpeot", "19", null, "asdad", "444", "88", "33xsada")
+    val homeworkText = listOf<String?>("ldsad", null, "sdsdsd", "eportpeot", "l19", "l19", null, "asdad", "444", "88", "33xsada")
     val res14 = homeworkText.filterNotNull()
     println(res14)
 
@@ -77,9 +79,23 @@ fun main () {
     println(res18)
 
 // 19 Распечатать квадраты элементов списка
+    val res19 = homework.associateWith { it*it }
+    println(res19)
+
 // 20 Группировать список по первой букве слов
+    val res20 = homeworkText.groupBy { it?.first() }
+    println(res20)
+
 // 21 Очистить список от дублей
+    val res21 = homeworkText.distinct()
+    println(res21)
+
 //22 Отсортировать список по убыванию
+    val res22 = homework.sortedDescending()
+    println(res22)
+
 //23 Взять последние 3 элемента списка
+    val res23 = homework.takeLast(3)
+    println(res23)
 
 }
