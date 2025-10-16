@@ -94,7 +94,7 @@ fun main () {
     val res22 = homework.sortedDescending()
     println(res22)
 
-//23 Взять последние 3 элемента списка
+//23 Взять последние 3 элемента спискаf
     val res23 = homework.takeLast(3)
     println(res23)
 
