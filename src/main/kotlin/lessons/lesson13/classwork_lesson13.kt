@@ -55,7 +55,20 @@ fun main() {
     val upper = fruitPrices.mapKeys { it.key.uppercase() }
     val list = fruitPrices.map {"${it.key} costs ${it.value}"}
 
+    val toMap = mutableFruits.toMap()
+    val toMutableMap = fruitPrices.toMutableMap()
 
+    fruitPrices.forEach { (fruit, price) ->
+        println("$fruit costs $price")
+    }
+
+    fruitPrices.forEach {
+        println("${it.key} costs ${it.value}")
+    }
+
+    fruitPrices.size
+    fruitPrices.count()
+    fruitPrices.count {it.value > 2} // кол-во ключей если сначала применить фильтрацию по условию
 
 
 }
