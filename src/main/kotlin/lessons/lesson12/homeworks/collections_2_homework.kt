@@ -10,7 +10,7 @@ fun main () {
     //Задачи на приведение коллекции к значению
 //1 Проверить, что размер коллекции больше 5 элементов.
     val homework = listOf(-1, 5, 7, 19, 23, 8, 444, 88, 33)
-    if (homework.size > 5 ) {
+    if (homework.size > 5) {
         println("yes")
     }
 
@@ -21,7 +21,7 @@ fun main () {
     homework.isNotEmpty()
 
 //4 Взять элемент по индексу или создать значение если индекса не существует
-    val res4= homework.getOrElse(6) {3}
+    val res4 = homework.getOrElse(6) { 3 }
     println(res4)
 
 //5 Собрать коллекцию в строку
@@ -58,11 +58,12 @@ fun main () {
     println(res12)
 
 // 13 Выбрать числа, которые не делятся на 2 и 3 одновременно
-    val res13 = homework.filter { it % 2 != 0 || it % 3 !=0 }
+    val res13 = homework.filter { it % 2 != 0 && it % 3 != 0 }
     println(res13)
 
 // 14 Очистить текстовую коллекцию от null элементов
-    val homeworkText = listOf<String?>("ldsad", null, "sdsdsd", "eportpeot", "l19", "l19", null, "asdad", "444", "88", "33xsada")
+    val homeworkText =
+        listOf<String?>("ldsad", null, "sdsdsd", "eportpeot", "l19", "l19", null, "asdad", "444", "88", "33xsada")
     val res14 = homeworkText.filterNotNull()
     println(res14)
 
@@ -75,7 +76,7 @@ fun main () {
     println(res16)
 
 // 17 Отсортировать список в алфавитном порядке
-    val res17 = homeworkText.sortedBy{it}
+    val res17 = homeworkText.sortedBy { it }
     println(res17)
 
 // 18 Взять первые 3 элемента списка
@@ -83,7 +84,7 @@ fun main () {
     println(res18)
 
 // 19 Распечатать квадраты элементов списка
-    val res19 = homework.associateWith { it*it }
+    val res19 = homework.associateWith { it * it }
     println(res19)
 
 // 20 Группировать список по первой букве слов
@@ -102,6 +103,73 @@ fun main () {
     val res23 = homework.takeLast(3)
     println(res23)
 
+    val grades = listOf(85, 58, 90, 74, 88, 67, 95, 92, 50, 42, 12)
+    val filtered = gradesFilter25(grades)
+    println(filtered)
+
+    val list26 = listOf(
+        "Стол",
+        "табурет",
+        "ваза",
+        "Кружка",
+        "Зеркало",
+        "ковер",
+        "Шкаф",
+        "часы",
+        "Люстра",
+        "подушка",
+        "Картина",
+        "столик",
+        "Вазон",
+        "шторы",
+        "Пуф",
+        "книга",
+        "Фоторамка",
+        "светильник",
+        "Коврик",
+        "вешалка",
+        "Подставка",
+        "телевизор",
+        "Комод",
+        "полка",
+        "Абажур",
+        "диван",
+        "Кресло",
+        "занавеска",
+        "Бра",
+        "пепельница",
+        "Глобус",
+        "статуэтка",
+        "Поднос",
+        "фигурка",
+        "Ключница",
+        "плед",
+        "Тумба",
+        "игрушка",
+        "Настенные часы",
+        "подсвечник",
+        "Журнальный столик",
+        "сувенир",
+        "Корзина для белья",
+        "посуда",
+        "Настольная лампа",
+        "торшер",
+        "Этажерка"
+    )
+    val realMap = mapByFirstLetter26(list26)
+    println(realMap)
+
+    val res26 = avgWordLenght27(list26)
+    println(res26)
+
+    val numbers28 = listOf(1, 3, 5, 7, 3, 1, 8, 9, 9, 7)
+    val res28 = mapNumbers28(numbers28)
+    println(res28)
+
+    val ages29 = listOf(22, 18, 30, 45, 17, null, 60)
+    val checkAge29 = 18
+    val res29 = searchAges29(ages29, checkAge29)
+    println(res29)
 }
 
 //24. Характеристика числовой коллекции
@@ -130,27 +198,6 @@ fun ex24(arg24: List<Int>) {
         arg24.contains(3) && arg24.contains(14) -> println("Пи***тая")
         else -> println("Уникальная")
     }
-
-    val grades = listOf(85, 58, 90, 74, 88, 67, 95, 92, 50, 42, 12)
-    val filtered = gradesFilter25(grades)
-    println(filtered)
-
-    val list26 = listOf("Стол", "табурет", "ваза", "Кружка", "Зеркало", "ковер", "Шкаф", "часы", "Люстра", "подушка", "Картина", "столик", "Вазон", "шторы", "Пуф", "книга", "Фоторамка", "светильник", "Коврик", "вешалка", "Подставка", "телевизор", "Комод", "полка", "Абажур", "диван", "Кресло", "занавеска", "Бра", "пепельница", "Глобус", "статуэтка", "Поднос", "фигурка", "Ключница", "плед", "Тумба", "игрушка", "Настенные часы", "подсвечник", "Журнальный столик", "сувенир", "Корзина для белья", "посуда", "Настольная лампа", "торшер", "Этажерка")
-    val realMap = mapByFirstLetter26(list26)
-    println(realMap)
-
-    val res26 = avgWordLenght27(list26)
-    println(res26)
-
-    val numbers28 = listOf(1, 3, 5, 7, 3, 1, 8, 9, 9, 7)
-    val res28 = mapNumbers28(numbers28)
-    println(res28)
-
-    val ages29 = listOf(22, 18, 30, 45, 17, null, 60)
-    val checkAge29 = 18
-    val res29 = searchAges29(ages29, checkAge29)
-    println(res29)
-
 }
 
 //Задача 25. Анализ учебных оценок
