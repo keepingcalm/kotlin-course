@@ -158,7 +158,9 @@ fun gradesFilter (arg1: List<Int>): List<Int> {
 //Напиши функцию, которая принимает список строк и возвращает словарь с ключом - буквой и значением - списком строк.
 
 fun mapByFirstLetter(words: List<String>): Map<Char, List<String>> {
-    return words.groupBy { it.first().uppercaseChar() }
+    return words
+        .map { it.lowercase() }
+        .groupBy { it.first().uppercaseChar() }
 }
 
 
