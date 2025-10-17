@@ -151,7 +151,6 @@ fun ex24(arg24: List<Int>) {
     val res29 = searchAges29(ages29, checkAge29)
     println(res29)
 
-
 }
 
 //Задача 25. Анализ учебных оценок
