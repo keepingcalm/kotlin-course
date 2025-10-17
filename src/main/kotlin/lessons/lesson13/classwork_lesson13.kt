@@ -85,5 +85,20 @@ fun main() {
     }
 
     food.forEach { _ -> println("Это тип $key, содержит $value") }
+
+    val a2: List<String> = food.getValue("Фрукты")
+
+    val a3: List<String> = food.getOrDefault("Крупы", listOf())
+
+    val a4: List<String> = food.getOrElse("Рыба") {
+        println("Не найдено")
+        listOf()
+    }
+
+     if (!food.containsKey("Мясо") && !food.containsKey("Рыба")) {
+         println("Еда для вегетарианцев")
+         }
+
+    val a5 = food.map{"Это тип $key, содержит $value"}
 }
 
