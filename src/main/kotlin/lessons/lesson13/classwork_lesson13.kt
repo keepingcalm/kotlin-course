@@ -11,7 +11,7 @@ fun main() {
         println("Key: $key, Value: $value")
     }
 
-    val entrie: Set<Map.Entry<String, Double>> = fruitPrices.entries
+    val entrie = fruitPrices.entries
     val key = fruitPrices.keys
     val value = fruitPrices.values
     println(entrie)
@@ -19,8 +19,8 @@ fun main() {
     println(value)
 
     val entries = fruitPrices.entries
-    val keys: Set<String> = fruitPrices.keys
-    val values: Collection<Double> = fruitPrices.values
+    val keys = fruitPrices.keys
+    val values = fruitPrices.values
     println(entries)
     println(keys)
     println(values)
