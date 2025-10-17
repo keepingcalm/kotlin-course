@@ -2,6 +2,7 @@ package ru.kotlin.lessons.lesson12.homeworks
 
 import ru.kotlin.homework.PI
 import ru.kotlin.homework.isOpen
+import ru.kotlin.homework.letter
 import ru.kotlin.lessons.lesson11.greetUser
 import ru.kotlin.lessons.lesson12.filter
 
@@ -138,6 +139,9 @@ fun ex24(arg24: List<Int>) {
     val realMap = mapByFirstLetter(list26)
     println(realMap)
 
+    val res26 = avgWordLenght(list26)
+    println(res26)
+
 }
 
 //Задача 25. Анализ учебных оценок
@@ -163,5 +167,13 @@ fun mapByFirstLetter(words: List<String>): Map<Char, List<String>> {
         .groupBy { it.first().uppercaseChar() }
 }
 
+//Задание 27. Подсчёт средней длины слов в списке
+//Напиши функцию, которая принимает список строк и возвращает строку.
+//Начальные значения взять из предыдущей задачи.
+//Цель: Перевести все слова в количество букв, подсчитать среднее значение. Вернуть форматированный текст с двумя знаками после запятой, используя функцию format и подходящий шаблон.
 
+fun avgWordLenght (words: List<String>) : String {
+    val lnght = words.map {it.replace(" ","").length}
+    val avg = lnght.average()
+return "Результат функции: %.2f".format(avg) }
 
