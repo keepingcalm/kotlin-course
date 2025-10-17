@@ -132,15 +132,20 @@ fun ex24(arg24: List<Int>) {
     }
 
     val grades = listOf(85, 58, 90, 74, 88, 67, 95, 92, 50, 42, 12)
-    val filtered = gradesFilter(grades)
+    val filtered = gradesFilter25(grades)
     println(filtered)
 
     val list26 = listOf("Стол", "табурет", "ваза", "Кружка", "Зеркало", "ковер", "Шкаф", "часы", "Люстра", "подушка", "Картина", "столик", "Вазон", "шторы", "Пуф", "книга", "Фоторамка", "светильник", "Коврик", "вешалка", "Подставка", "телевизор", "Комод", "полка", "Абажур", "диван", "Кресло", "занавеска", "Бра", "пепельница", "Глобус", "статуэтка", "Поднос", "фигурка", "Ключница", "плед", "Тумба", "игрушка", "Настенные часы", "подсвечник", "Журнальный столик", "сувенир", "Корзина для белья", "посуда", "Настольная лампа", "торшер", "Этажерка")
-    val realMap = mapByFirstLetter(list26)
+    val realMap = mapByFirstLetter26(list26)
     println(realMap)
 
-    val res26 = avgWordLenght(list26)
+    val res26 = avgWordLenght27(list26)
     println(res26)
+
+    val numbers28 = listOf(1, 3, 5, 7, 3, 1, 8, 9, 9, 7)
+    val res28 = mapNumbers28(numbers28)
+    println(res28)
+
 
 }
 
@@ -151,7 +156,7 @@ fun ex24(arg24: List<Int>) {
 
 
 
-fun gradesFilter (arg1: List<Int>): List<Int> {
+fun gradesFilter25 (arg1: List<Int>): List<Int> {
     return arg1
     .filter { it >=60 }
     .sorted()
@@ -161,7 +166,7 @@ fun gradesFilter (arg1: List<Int>): List<Int> {
 //Задача 26. Создание каталога по первой букве
 //Напиши функцию, которая принимает список строк и возвращает словарь с ключом - буквой и значением - списком строк.
 
-fun mapByFirstLetter(words: List<String>): Map<Char, List<String>> {
+fun mapByFirstLetter26(words: List<String>): Map<Char, List<String>> {
     return words
         .map { it.lowercase() }
         .groupBy { it.first().uppercaseChar() }
@@ -172,8 +177,20 @@ fun mapByFirstLetter(words: List<String>): Map<Char, List<String>> {
 //Начальные значения взять из предыдущей задачи.
 //Цель: Перевести все слова в количество букв, подсчитать среднее значение. Вернуть форматированный текст с двумя знаками после запятой, используя функцию format и подходящий шаблон.
 
-fun avgWordLenght (words: List<String>) : String {
+fun avgWordLenght27 (words: List<String>) : String {
     val lnght = words.map {it.replace(" ","").length}
     val avg = lnght.average()
 return "Результат функции: %.2f".format(avg) }
 
+//Задание 28: Категоризация чисел
+//Напиши функцию, которая принимает список чисел и возвращает словарь с ключами - строками и значениями - список чисел.
+//Цель: Отобрать уникальные числа, отсортировать по убыванию и сгруппировать по четности (“четные” и “нечетные”).
+
+val numbers28 = listOf(1, 3, 5, 7, 3, 1, 8, 9, 9, 7)
+
+fun mapNumbers28(nums: List<Int>): Map<String, List<Int>> {
+    return nums
+        .distinct()
+        .sortedDescending()
+        .groupBy { if (it % 2 == 0) "четные" else "нечетные" }
+}
