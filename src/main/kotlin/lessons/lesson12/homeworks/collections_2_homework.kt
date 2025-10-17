@@ -193,8 +193,8 @@ fun ex24(arg24: List<Int>) {
         arg24.sum() > 10000 -> println("Массивная")
         arg24.average().toInt() == 10 -> println("Сбалансированная")
         arg24.joinToString("").length == 20 -> println("Клейкая")
-        arg24.max() < -10 -> println("Отрицательная")
-        arg24.min() > 1000 -> println("Положительная")
+        (arg24.maxOrNull()?: 0) < -10 -> println("Отрицательная")
+        (arg24.minOrNull()?: 0) > 1000 -> println("Положительная")
         arg24.contains(3) && arg24.contains(14) -> println("Пи***тая")
         else -> println("Уникальная")
     }
