@@ -68,7 +68,7 @@ fun main() {
     println(filterRes)
 
 //   14 У вас есть словарь, где ключи — это названия функциональных модулей приложения, а значения — результаты их тестирования. Проверьте, есть ли модули с неудачным тестированием.
-    val funcModule = mapOf("api" to "Passed", "mail" to "Failed", "auth" to "Skipped", "orders" to "Passed", "searh" to "Failed")
+    val funcModule = mapOf("api" to "Passed", "mail" to "Failed", "auth optional" to "Skipped", "orders" to "Passed", "searh optional" to "Failed")
     val funcFilterRes14 = funcModule.filter { it.value == "Failed" }
     println(funcFilterRes14)
 
@@ -98,12 +98,41 @@ fun main() {
     println(copyMap)
 
 //   20 Создайте отчет о тестировании, преобразовав словарь с результатами тестирования (ключ — идентификатор теста, значение — результат) в список строк формата "Test ID: результат".
+    val resList = testResults.map { (key,value) ->"Test ID: $key - result $value" }
+    println(resList)
+
 //   21 Преобразуйте изменяемый словарь с результатами последнего тестирования в неизменяемый для архивации.
+    val archiveList = testResults.toMap()
+    println(archiveList)
+
 //   22 Преобразуйте словарь, содержащий числовой ID теста и данные о времени выполнения тестов, заменив идентификаторы тестов на их строковый аналог (например через toString()).
+    val testTimeRes = mapOf<Int,Int>(1 to 33, 2 to 355, 3 to 666, 4 to 222)
+    val testStringTimes = testTimeRes.mapKeys {(key, _) -> key.toString()}
+    println(testStringTimes)
+
 //   23 Для словаря с оценками производительности различных версий приложения (ключи - строковая версия, значения - дробное число времени ответа сервера) увеличьте каждую оценку на 10%, чтобы учесть новые условия тестирования.
+    val servResp = mapOf<String, Double>("ver1" to 20.77, "ver2" to 33.55, "ver3" to 222.44)
+    val newTime = servResp.mapValues { it.value + it.value * 0.1 }
+    println(newTime)
+
 //   24 Проверьте, пуст ли словарь с ошибками компиляции тестов.
+    val Empty24 = testResults.isEmpty()
+    println(Empty24)
+
 //   25 Убедитесь, что словарь с результатами нагрузочного тестирования не пуст.
+    val notEmpty25 = testResults.isNotEmpty()
+    println(notEmpty25)
+
 //   26 Проверьте, прошли ли успешно все автоматизированные тесты в словаре с результатами.
+    val testRes26 = testResults.all { it.value == "Passed"}
+    println(testRes26)
+
 //   27 Определите, содержит ли словарь с результатами тестирования хотя бы один тест с ошибкой.
+    val test27 = testResults.any {it.value == "failed"}
+    println(test27)
+
 //   28 Отфильтруйте словарь с результатами тестирования сервисов, оставив только те тесты, которые не прошли успешно и содержат в названии “optional”.
+    val test28 = funcModule.filter { it.value == "Failed" && it.key.contains("optional") }
+    println(test28)
+
 }
