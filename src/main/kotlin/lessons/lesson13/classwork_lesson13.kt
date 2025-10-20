@@ -32,7 +32,7 @@ fun main() {
     val fruitswithoutbanana = fruitPrices - "banana" // создание нов словаря без банана
     val fruitswithPineapple = fruitPrices + ("pineapple" to 7.33) // создание нов словаря c ананасом
     val mutableFruits = fruitPrices.toMutableMap() // создаст новый измен словарь
-    mutableFruits["kiwi"] = 2.75 // добавление
+    mutableFruits["kiwi"] = 2.75 // добавление element
     mutableFruits.putAll(mapOf("lime" to 1.22, "avocado" to 11.22)) // добавлеине словаря
     mutableFruits + mapOf("lime" to 1.11, "avocado" to 1.54) // не добавляет словарь, а соединяет
     mutableFruits.remove("apple") // remove element

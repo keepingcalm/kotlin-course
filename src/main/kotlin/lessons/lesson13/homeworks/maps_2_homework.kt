@@ -43,7 +43,7 @@ fun main() {
     println(res81)
 
 //   9 Из словаря, содержащего конфигурации тестового окружения (ключ — название параметра конфигурации, значение - сама конфигурация), получите значение для "browserType". Ответ не может быть null.
-    val configEnv = mutableMapOf<String, String>("browserType" to "Chrome", "stand" to "dev", "BD" to "mongo")
+    val configEnv = mutableMapOf<String, String>("browserType" to "Chrome", "stand" to "dev", "BD" to "mongo") // сделала мутабл для 15 задания
     val res9 = configEnv.getValue("browserType")
     println(res9)
 
@@ -85,8 +85,18 @@ fun main() {
     println(bugs3)
 
 //   17 Очистите изменяемый словарь с временными данными о последнем прогоне автоматизированных тестов.
+    val autoTestMap = mutableMapOf<String, String>("test1" to "ok", "test2" to "fail")
+    autoTestMap.clear()
+    println(autoTestMap)
+
 //   18 Исключите из отчета по автоматизированному тестированию те случаи, где тесты были пропущены (имеют статус “skipped”). Ключи - название теста, значения - статус.
+    val res18 = testResults.filter { it.value !== "skipped"}
+    println(res18)
+
 //   19 Создайте копию словаря с конфигурациями тестирования удалив из него несколько конфигураций.
+    val copyMap = configEnv - listOf("browserType", "stand")
+    println(copyMap)
+
 //   20 Создайте отчет о тестировании, преобразовав словарь с результатами тестирования (ключ — идентификатор теста, значение — результат) в список строк формата "Test ID: результат".
 //   21 Преобразуйте изменяемый словарь с результатами последнего тестирования в неизменяемый для архивации.
 //   22 Преобразуйте словарь, содержащий числовой ID теста и данные о времени выполнения тестов, заменив идентификаторы тестов на их строковый аналог (например через toString()).
