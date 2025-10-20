@@ -43,7 +43,7 @@ fun main() {
     println(res81)
 
 //   9 Из словаря, содержащего конфигурации тестового окружения (ключ — название параметра конфигурации, значение - сама конфигурация), получите значение для "browserType". Ответ не может быть null.
-    val configEnv = mapOf<String, String>("browserType" to "Chrome", "stand" to "dev", "BD" to "mongo")
+    val configEnv = mutableMapOf<String, String>("browserType" to "Chrome", "stand" to "dev", "BD" to "mongo")
     val res9 = configEnv.getValue("browserType")
     println(res9)
 
@@ -73,7 +73,9 @@ fun main() {
     println(funcFilterRes14)
 
 //   15 Добавьте в изменяемый словарь с настройками тестовой среды настройки из другого словаря.
-
+    val addConfig = mapOf("timeout" to "30s", "retries" to "3")
+    configEnv.putAll(addConfig)
+    println(configEnv)
 
 //   16 Объедините два неизменяемых словаря с данными о багах.
 //   17 Очистите изменяемый словарь с временными данными о последнем прогоне автоматизированных тестов.
