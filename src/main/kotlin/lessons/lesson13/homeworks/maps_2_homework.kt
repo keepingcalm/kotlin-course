@@ -14,6 +14,7 @@ fun main() {
 //   3 В изменяемый словарь с данными о прохождении тестов добавьте новый тест и его результат.
     val testResults = mutableMapOf<String, String>("test1" to "passed", "test2" to "skipped", "test3" to "failed", "test4" to "passed", "test5" to "failed")
     testResults["test6"] = "skipped"
+    testResults.put("test7", "skipped")
     println(testResults)
 
 //   4 Посчитайте количество успешных тестов в словаре с результатами (ключ - название, значение - результат из passed, failed, skipped).
@@ -22,7 +23,8 @@ fun main() {
 
 //   5 Удалите из изменяемого словаря с баг-трекингом запись о баге, который был исправлен (ключ - название, значение - статус исправления).
     val bugTrack = mutableMapOf<String, String>("bug1" to "fixed", "bug2" to "fixed", "bug3" to "todo")
-    bugTrack.remove("bug1")
+    bugTrack.remove("bug1","fixed")
+    println(bugTrack)
 
 //   6 Для словаря с результатами тестирования веб-страниц (ключ — URL страницы, значение — статус ответа), выведите сообщение о странице и статусе её проверки.
     val urlTest = mapOf<String, String>("url1" to "in progress", "url2" to "done", "url3" to "failure", "url4" to "in progress")
@@ -38,7 +40,7 @@ fun main() {
 //   8 В словаре хранятся результаты тестирования API (ключ — endpoint, значение — статус ответа в виде строки). Для указанного endpoint найдите статус ответа, если endpoint отсутствует, предположите, что он не был протестирован.
     val apiTest = mapOf<String, String>("endpoint1" to "200", "endpoint2" to "200", "endpoint3" to "503", "endpoint4" to "404")
     val res8 = apiTest["endpoint4"] ?: "Не протестирован"
-    val res81 = apiTest["endpoint5"] ?: "Не протестирован"
+    val res81 = apiTest.getOrDefault("endpoint5", "Не протестирован")
     println(res8)
     println(res81)
 
