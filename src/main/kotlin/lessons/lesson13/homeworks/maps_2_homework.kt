@@ -71,7 +71,7 @@ fun main() {
 
 //   14 У вас есть словарь, где ключи — это названия функциональных модулей приложения, а значения — результаты их тестирования. Проверьте, есть ли модули с неудачным тестированием.
     val funcModule = mapOf("api" to "Passed", "mail" to "Failed", "auth optional" to "Skipped", "orders" to "Passed", "searh optional" to "Failed")
-    val funcFilterRes14 = funcModule.filter { it.value == "Failed" }
+    val funcFilterRes14 = funcModule.any{ it.value == "Failed" }
     println(funcFilterRes14)
 
 //   15 Добавьте в изменяемый словарь с настройками тестовой среды настройки из другого словаря.
@@ -92,7 +92,7 @@ fun main() {
     println(autoTestMap)
 
 //   18 Исключите из отчета по автоматизированному тестированию те случаи, где тесты были пропущены (имеют статус “skipped”). Ключи - название теста, значения - статус.
-    val res18 = testResults.filter { it.value !== "skipped"}
+    val res18 = testResults.filterNot { it.value == "skipped"}
     println(res18)
 
 //   19 Создайте копию словаря с конфигурациями тестирования удалив из него несколько конфигураций.
@@ -109,7 +109,7 @@ fun main() {
 
 //   22 Преобразуйте словарь, содержащий числовой ID теста и данные о времени выполнения тестов, заменив идентификаторы тестов на их строковый аналог (например через toString()).
     val testTimeRes = mapOf<Int,Int>(1 to 33, 2 to 355, 3 to 666, 4 to 222)
-    val testStringTimes = testTimeRes.mapKeys {(key, _) -> key.toString()}
+    val testStringTimes = testTimeRes.mapKeys {it.key.toString()}
     println(testStringTimes)
 
 //   23 Для словаря с оценками производительности различных версий приложения (ключи - строковая версия, значения - дробное число времени ответа сервера) увеличьте каждую оценку на 10%, чтобы учесть новые условия тестирования.
