@@ -13,4 +13,8 @@ class Wind(private var speed: Int) {
             this.speed = speed
         }
     }
+
+    fun print() {
+        print("Текущая скорость: $speed м/с")
+    }
 }

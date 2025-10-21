@@ -9,7 +9,8 @@ fun main() {
     lamp.toggle()
 
     val wind = Wind(5)
-    wind.convertSpeed()
+    wind.setSpeed(3)
+    wind.print()
 
 //    val reservedSeatCarriage = Carriage(48)
 //    val compartmentCarriage = Carriage(16, "Купе")
