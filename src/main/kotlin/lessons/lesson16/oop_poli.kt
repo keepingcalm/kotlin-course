@@ -11,6 +11,7 @@ object Colors {
     const val CYAN = "\u001B[36m"
     const val WHITE = "\u001B[37m"
 }
+
 object Background {
     const val RESET = "\u001B[0m"
     const val BLACK = "\u001B[40m"
@@ -23,26 +24,72 @@ object Background {
     const val WHITE = "\u001B[47m"
 }
 
- fun printColored(text: String, color: String, backgroundColor: String = "") {
+fun printColored(text: String, color: String, backgroundColor: String = "") {
     println("$color$backgroundColor$text${Colors.RESET}")
 }
+
 abstract class MusicalInstrument {
     abstract fun playNote(note: String)
     protected fun shortNote(note: String, color: String) {
         printColored("Play short note $note", color)
     }
+
     protected fun longNote(note: String, color: String) {
         printColored("Play long note $note", color)
     }
 }
 
-class Violin: MusicalInstrument() {
+class Violin : MusicalInstrument() {
     override fun playNote(note: String) {
         longNote(note, Colors.YELLOW)
     }
 }
 
+class Drum : MusicalInstrument() {
+    override fun playNote(note: String) {
+        shortNote(note, Colors.RED)
+    }
+
+}
+
 fun main() {
     val violin = Violin()
     violin.playNote("C")
+    val drum = Drum()
+    drum.playNote("D")
+
+    val band: List<MusicalInstrument> = listOf(violin, drum)
+    val notes = "ABCDEFG"
+    notes.forEach { note ->
+        band.forEach {
+            it.playNote((note.toString()))
+        }
+    }
+
+    val printer = Printer()
+    printer.print("First print type")
+    printer.print("Second type", Colors.PURPLE)
+    printer.print("Third print type", Colors.YELLOW, Background.GREEN)
+}
+
+class Printer {
+    fun print(text: String) {
+        println(text)
+    }
+
+    fun print(text: String, color: String) {
+        printColored(text, color)
+    }
+
+    fun print(text: String, color: String, backgroundColor: String) {
+        printColored(text, color, backgroundColor)
+    }
+
+    fun print(text: Array<String>) {
+        text.forEach { println(it) }
+    }
+
+    fun print(coloredText: List<Pair<String, String>>) {
+        coloredText.forEach { printColored(it.first, it.second) }
+    }
 }
