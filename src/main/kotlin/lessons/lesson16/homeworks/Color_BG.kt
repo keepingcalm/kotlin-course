@@ -27,3 +27,16 @@ object Background {
 fun printColored(text: String, color: String, backgroundColor: String = "") {
     println("$color$backgroundColor$text${Colors.RESET}")
 }
+
+fun main() {
+    val laserPrinter = LaserPrinter()
+    val inkjetPrinter = InkjetPrinter()
+
+    val text = "Kotlin is a modern and expressive programming language designed to make coding enjoyable and efficient"
+
+    println("\n--- Laser Printer Output ---")
+    laserPrinter.print(text)
+
+    println("\n--- Inkjet Printer Output ---")
+    inkjetPrinter.print(text)
+}

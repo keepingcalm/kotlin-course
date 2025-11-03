@@ -10,7 +10,7 @@ package ru.kotlin.lessons.lesson16.homeworks
 //Создайте список животных List<Animal> и вызовите в цикле метод makeSound()
 
 
-object Colors {
+object Color {
     const val RESET = "\u001B[0m"
     const val RED = "\u001B[31m"
     const val GREEN = "\u001B[32m"
