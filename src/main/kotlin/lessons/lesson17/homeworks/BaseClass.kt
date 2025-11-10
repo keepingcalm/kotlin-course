@@ -34,11 +34,13 @@ abstract class BaseClass(
         privatePrint()
     }
     // 7. объясни, почему эта функция не может быть публичной
+    // создан протект класс, публично получить ссылку на протект класс нельзя поэтому и весь метод протектед
     protected open fun getProtectedClass() = ProtectedClass()
     protected open fun verifyPublicField(value: String): Boolean {
         return value.length < 3
     }
     // 8. Распечатай getAll() и объясни, почему в поле "generate" другой текст
+    // generate переоределен в доч классе
     open fun generate(): String {
         return "Это генерация из родительского класса"
     }
@@ -46,6 +48,7 @@ abstract class BaseClass(
         println("Печать из класса BaseClass")
     }
     // 9. объясни, почему эта функция не может быть публичной или protected
+    // возвращается прайват класс, к которому извне нет доступа, поэтому все прайват
     private fun getPrivateClass() = PrivateClass()
 
     protected class ProtectedClass() {}
@@ -56,9 +59,11 @@ class ChildrenClass(
     val privateVal: String,
     protectedVal: String,
     // 10. объясни, почему этот аргумент доступен в main() несмотря на то, что это не поле
+    // потому что можем использовать как child.publicVal
     publicVal: String
 ) : BaseClass(privateVal, protectedVal, publicVal) {
     // 11. объясни, почему в main() доступна функция getAll() хотя её здесь нет
+    // потому что есть наследование из баз класса, даже без объявление - работает наследование
     // 12. проверь, что выводится на печать при вызове функции printText()
     // и объясни, почему не происходит переопределение метода privatePrint()
     private fun privatePrint() {
@@ -77,5 +82,7 @@ fun main() {
     val child = ChildrenClass("private", "protected", "public")
     child.publicField = "Антонио Бандерас"
     child.setProtectedField1("Новое значение")
+    child.printText()
     println(child.getAll())
+
 }
