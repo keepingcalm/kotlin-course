@@ -1,9 +1,11 @@
 package ru.kotlin.lessons.lesson17.homeworks
 
 abstract class BaseClass(
-    // 1. объясни, почему это поле доступно в main() для чтения из класса ChildrenClass -
+    // 1. объясни, почему это поле доступно в main() для чтения из класса ChildrenClass
+    // там не приватная переменная указана, с таким же именем
     private val privateVal: String,
     // 2. объясни, почему это поле недоступно в main() -
+    // переменная протектед, доступна только в классе и в дочерних классах
     protected val protectedVal: String,
     val publicVal: String
 ) {
@@ -14,14 +16,14 @@ abstract class BaseClass(
                 field = value
             }
         }
-    protected var protectedField = "5. измени меня из функции main() через сеттер в наследнике"
+    protected var protectedField = "5. измени меня из функции main() через сеттер в наследнике" // нельзя поменять в протектед переменной ничего
     private var privateField = "6. добавь сеттер чтобы изменить меня из main()"
     fun getAll(): String {
         return mapOf(
             "privateVal" to privateVal,
             "protectedVal" to protectedVal,
             "publicVal" to publicVal,
-            "publicField" to publicField,
+            "publicField" to "Антонио Бандерас",
             "protectedField" to protectedField,
             "privateField" to privateField,
             "generate" to generate(),
@@ -62,7 +64,18 @@ class ChildrenClass(
     private fun privatePrint() {
         println("Печать из класса ChildrenClass")
     }
+    override fun verifyPublicField(value: String) = true
     override fun generate(): String {
         return "Это генерация из дочернего класса"
     }
+    fun setProtectedField1(value: String) {
+        protectedField = value
+    }
+}
+
+fun main() {
+    val child = ChildrenClass("private", "protected", "public")
+    child.publicField = "Антонио Бандерас"
+    child.setProtectedField1("Новое значение")
+    println(child.getAll())
 }
