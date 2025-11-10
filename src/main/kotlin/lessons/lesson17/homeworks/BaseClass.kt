@@ -71,11 +71,16 @@ class ChildrenClass(
     fun setProtectedField1(value: String) {
         protectedField = value
     }
+    fun setPrivateField(value: String) {
+        val fieldRef = this.javaClass.superclass
+        protectedField = value
+    }
 }
 
 fun main() {
     val child = ChildrenClass("private", "protected", "public")
     child.publicField = "Антонио Бандерас"
     child.setProtectedField1("Новое значение")
+    child.setPrivateField("супер новое значение приватного поля")
     println(child.getAll())
 }
