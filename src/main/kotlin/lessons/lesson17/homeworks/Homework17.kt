@@ -1,0 +1,141 @@
+package ru.kotlin.lessons.lesson17.homeworks
+
+class SlotMachine (
+    val color: String,
+    val model: String,
+    var onOff: Boolean,
+    var loadOS: Boolean,
+    var listGame: List<String>,
+    val joystick: Boolean,
+    private var earnedMoney: Double,
+    var owner: String,
+    var phoneSupport: String,
+    var isSessionPaid: Boolean,
+    var sessionPrice: Double,
+    private var pinCode: String
+) {
+    fun onOff () {
+       onOff = true
+       println("Автомат включен")
+    }
+    fun powerOff() {
+        onOff = false
+        println("Автомат выключен")
+    }
+    fun loadOs() {
+        if (onOff) {
+            loadOS = true
+            println("ОС загружена")
+        } else {
+            println("Сначала включите автомат")
+        }
+    }
+    fun shutdownOs() {
+        if (loadOS) {
+            loadOS = false
+            println("ОС завершила работу")
+        } else {
+            println("ОС не была загружена")
+        }
+    }
+    fun showGames() {
+        println("Список игр: $listGame")
+    }
+    fun startGame(gameName: String) {
+        if (loadOS && isSessionPaid && listGame.contains(gameName)) {
+            println("Игра $gameName запущена")
+        } else {
+            println("Невозможно запустить игру: проверьте оплату и загрузку ОС")
+        }
+    }
+    fun paySession(amount: Double) {
+        if (amount >= sessionPrice) {
+            isSessionPaid = true
+            earnedMoney += amount
+            println("Сеанс оплачен")
+        } else {
+            println("Недостаточно средств для сеанса")
+        }
+    }
+    fun takeCash(inputPin: String): Double {
+        return if (inputPin == pinCode) {
+            val cash = earnedMoney
+            earnedMoney = 0.0
+            println("Выдано наличных: $cash")
+            cash
+        } else {
+            println("Неверный пин-код")
+            0.0
+        }
+    }
+    fun openSafe() {
+        println("Сейф открыт, можно забрать наличные через takeCash()")
+    }
+}
+
+abstract class BaseClass(
+    // 1. объясни, почему это поле доступно в main() для чтения из класса ChildrenClass -
+    private val privateVal: String,
+    // 2. объясни, почему это поле недоступно в main() -
+    protected val protectedVal: String,
+    val publicVal: String
+) {
+    var publicField = "3. измени меня из функции main() на Антонио Бандераса и проверь через функцию getAll()" +
+            "4. Доработай ChildrenClass таким образом, чтобы это получилось"
+        set(value) {
+            if (verifyPublicField(value)) {
+                field = value
+            }
+        }
+    protected var protectedField = "5. измени меня из функции main() через сеттер в наследнике"
+    private var privateField = "6. добавь сеттер чтобы изменить меня из main()"
+    fun getAll(): String {
+        return mapOf(
+            "privateVal" to privateVal,
+            "protectedVal" to protectedVal,
+            "publicVal" to publicVal,
+            "publicField" to publicField,
+            "protectedField" to protectedField,
+            "privateField" to privateField,
+            "generate" to generate(),
+        ).map { "${it.key}: ${it.value}" }
+            .joinToString("\n")
+    }
+    fun printText() {
+        privatePrint()
+    }
+    // 7. объясни, почему эта функция не может быть публичной
+    protected open fun getProtectedClass() = ProtectedClass()
+    protected open fun verifyPublicField(value: String): Boolean {
+        return value.length < 3
+    }
+    // 8. Распечатай getAll() и объясни, почему в поле "generate" другой текст
+    open fun generate(): String {
+        return "Это генерация из родительского класса"
+    }
+    private fun privatePrint() {
+        println("Печать из класса BaseClass")
+    }
+    // 9. объясни, почему эта функция не может быть публичной или protected
+    private fun getPrivateClass() = PrivateClass()
+
+    protected class ProtectedClass() {}
+
+    private class PrivateClass() {}
+}
+class ChildrenClass(
+    val privateVal: String,
+    protectedVal: String,
+    // 10. объясни, почему этот аргумент доступен в main() несмотря на то, что это не поле
+    publicVal: String
+) : BaseClass(privateVal, protectedVal, publicVal) {
+    // 11. объясни, почему в main() доступна функция getAll() хотя её здесь нет
+    // 12. проверь, что выводится на печать при вызове функции printText()
+    // и объясни, почему не происходит переопределение метода privatePrint()
+    private fun privatePrint() {
+        println("Печать из класса ChildrenClass")
+    }
+    override fun generate(): String {
+        return "Это генерация из дочернего класса"
+    }
+}
