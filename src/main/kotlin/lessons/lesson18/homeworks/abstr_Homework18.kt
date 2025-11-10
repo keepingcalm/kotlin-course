@@ -1,7 +1,6 @@
 package ru.kotlin.lessons.lesson18.homeworks
 
 import java.io.InputStream
-import java.security.Signer
 
 interface Powerable {
     fun powerOn()
@@ -84,12 +83,95 @@ interface Rechargeable {
 
 // Задача 1. Создай абстрактные классы устройств, используя эти интерфейсы. Реализовывать методы не нужно.
 //Холодильник
-abstract class Fridge: Powerable, Openable, TemperatureRegulatable, Drainable, LightEmitting, SoundEmitting, Programmable, Cleanable
+abstract class Fridge: Powerable, Openable, TemperatureRegulatable, Drainable, LightEmitting, SoundEmitting, Programmable
 // Стиральная машина
 abstract class WashingMachine: Powerable, Openable, WaterContainer, TemperatureRegulatable, WaterConnection, AutomaticShutdown, Drainable, Timable, SoundEmitting, Programmable, Cleanable
 // Умная лампа
-abstract class SmartLamp: Powerable, AutomaticShutdown, Timable, LightEmitting, Programmable, Cleanable
+abstract class SmartLamp: Powerable, AutomaticShutdown, Timable, LightEmitting, Programmable
 // Электронные часы
-abstract class ElectronicWatch: Powerable, Openable, Timable, BatteryOperated, LightEmitting, SoundEmitting, Programmable, Rechargeable, Cleanable
+abstract class ElectronicWatch: Powerable, Openable, Timable, BatteryOperated, LightEmitting, SoundEmitting, Programmable, Rechargeable
 // Робот-пылесос
 abstract class RobotVacuum: Powerable, Openable, AutomaticShutdown, Timable, BatteryOperated, SoundEmitting, Programmable, Movable, Cleanable, Rechargeable
+// Механические часы
+abstract class MechaWatch: Openable, Cleanable, Mechanical
+// Фонарик
+abstract class Torch: Powerable, Openable, BatteryOperated, LightEmitting, Rechargeable
+// Кофемашина
+abstract class CoffeeMachine: Powerable, Openable, WaterContainer, TemperatureRegulatable, AutomaticShutdown, Drainable, Timable, SoundEmitting, Programmable, Cleanable
+// Умная колонка
+abstract class Alexa: Powerable, Timable, BatteryOperated, LightEmitting, SoundEmitting, Programmable, Rechargeable
+
+//Задача 2. Создай абстрактный класс для включаемого оборудования и имплементируй соответствующий интерфейс с реализацией методов (достаточно println с выполняемым действием).
+
+abstract class SwitchableDevices (val name : String) : Powerable {
+    override fun powerOn() {
+        println("$name включено.")
+    }
+
+    override fun powerOff() {
+        println("$name выключено.")
+    }
+}
+
+//Задача 3. Создай абстрактный класс для программируемого оборудования (с имплементацией соответствующего интерфейса и реализацией методов) и наследуй его от абстрактного класса включаемого оборудования.
+
+abstract class ProgrammableDevices(val arg: String, name: String) :
+    SwitchableDevices(name), Programmable {
+
+    private var currentAction: String? = null
+
+    override fun programAction(action: String) {
+        currentAction = action
+        println("$name: действие \"$action\" запрограммировано.")
+    }
+
+    override fun execute() {
+        if (currentAction != null) {
+            println("$name выполняет действие: \"$currentAction\".")
+        } else {
+            println("$name: действие не задано.")
+        }
+    }
+
+    abstract fun deviceInfo()
+}
+
+//Задача 4. Создай абстрактный класс оборудования с возможностью устанавливать температуру и открываться и с наследованием от программируемого оборудования. Также имплементируй интерфейсы.
+
+abstract class ThermalDevice(
+    name: String,
+    arg: String,
+    override val maxTemperature: Int
+) : ProgrammableDevices(arg, name), TemperatureRegulatable, Openable {
+
+    private var currentTemp: Int = 20
+    private var isOpen: Boolean = false
+
+    override fun setTemperature(temp: Int) {
+        if (temp <= maxTemperature) {
+            currentTemp = temp
+            println("$name: температура установлена на $temp°C.")
+        } else {
+            println("$name: невозможно установить $temp°C — превышен максимум $maxTemperature°C!")
+        }
+    }
+
+    override fun open() {
+        if (!isOpen) {
+            isOpen = true
+            println("$name открыто.")
+        } else {
+            println("$name уже открыто.")
+        }
+    }
+
+    override fun close() {
+        if (isOpen) {
+            isOpen = false
+            println("$name закрыто.")
+        } else {
+            println("$name уже закрыто.")
+        }
+    }
+}
+
