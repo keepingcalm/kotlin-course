@@ -1,6 +1,7 @@
 package ru.kotlin.lessons.lesson18.homeworks
 
 import java.io.InputStream
+import java.security.Signer
 
 interface Powerable {
     fun powerOn()
@@ -85,4 +86,10 @@ interface Rechargeable {
 //Холодильник
 abstract class Fridge: Powerable, Openable, TemperatureRegulatable, Drainable, LightEmitting, SoundEmitting, Programmable, Cleanable
 // Стиральная машина
-abstract class WashingMachine: Powerable, Openable, WaterContainer, TemperatureRegulatable, WaterConnection,
+abstract class WashingMachine: Powerable, Openable, WaterContainer, TemperatureRegulatable, WaterConnection, AutomaticShutdown, Drainable, Timable, SoundEmitting, Programmable, Cleanable
+// Умная лампа
+abstract class SmartLamp: Powerable, AutomaticShutdown, Timable, LightEmitting, Programmable, Cleanable
+// Электронные часы
+abstract class ElectronicWatch: Powerable, Openable, Timable, BatteryOperated, LightEmitting, SoundEmitting, Programmable, Rechargeable, Cleanable
+// Робот-пылесос
+abstract class RobotVacuum: Powerable, Openable, AutomaticShutdown, Timable, BatteryOperated, SoundEmitting, Programmable, Movable, Cleanable, Rechargeable
