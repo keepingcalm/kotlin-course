@@ -83,34 +83,51 @@ interface Rechargeable {
 
 // Задача 1. Создай абстрактные классы устройств, используя эти интерфейсы. Реализовывать методы не нужно.
 //Холодильник
-abstract class Fridge: Powerable, Openable, TemperatureRegulatable, Drainable, LightEmitting, SoundEmitting, Programmable
+abstract class Fridge : Powerable, Openable, TemperatureRegulatable, Drainable, LightEmitting, SoundEmitting,
+    Programmable
+
 // Стиральная машина
-abstract class WashingMachine: Powerable, Openable, WaterContainer, TemperatureRegulatable, WaterConnection, AutomaticShutdown, Drainable, Timable, SoundEmitting, Programmable, Cleanable
+abstract class WashingMachine : Powerable, Openable, WaterContainer, TemperatureRegulatable, WaterConnection, Drainable,
+    SoundEmitting, Programmable, Cleanable
+
 // Умная лампа
-abstract class SmartLamp: Powerable, AutomaticShutdown, Timable, LightEmitting, Programmable
+abstract class SmartLamp : Powerable, LightEmitting, Programmable
+
 // Электронные часы
-abstract class ElectronicWatch: Powerable, Openable, Timable, BatteryOperated, LightEmitting, SoundEmitting, Programmable, Rechargeable
+abstract class ElectronicWatch : Powerable, LightEmitting, SoundEmitting, Programmable, Rechargeable
+
 // Робот-пылесос
-abstract class RobotVacuum: Powerable, Openable, AutomaticShutdown, Timable, BatteryOperated, SoundEmitting, Programmable, Movable, Cleanable, Rechargeable
+abstract class RobotVacuum : Powerable, Openable, SoundEmitting, Programmable, Movable, Cleanable, Rechargeable
+
 // Механические часы
-abstract class MechaWatch: Openable, Cleanable, Mechanical
+abstract class MechaWatch : Mechanical, Timable
+
 // Фонарик
-abstract class Torch: Powerable, Openable, BatteryOperated, LightEmitting, Rechargeable
+abstract class Torch : Powerable, BatteryOperated, LightEmitting
+
 // Кофемашина
-abstract class CoffeeMachine: Powerable, Openable, WaterContainer, TemperatureRegulatable, AutomaticShutdown, Drainable, Timable, SoundEmitting, Programmable, Cleanable
+abstract class CoffeeMachine : Powerable, Openable, WaterContainer, TemperatureRegulatable, AutomaticShutdown,
+    Drainable, Timable, SoundEmitting, Cleanable
+
 // Умная колонка
-abstract class Alexa: Powerable, Timable, BatteryOperated, LightEmitting, SoundEmitting, Programmable, Rechargeable
+abstract class Alexa : Powerable, LightEmitting, SoundEmitting, Programmable, Rechargeable
 
 //Задача 2. Создай абстрактный класс для включаемого оборудования и имплементируй соответствующий интерфейс с реализацией методов (достаточно println с выполняемым действием).
 
-abstract class SwitchableDevices (val name : String) : Powerable {
+abstract class SwitchableDevices(val name: String) : Powerable {
+    private var deviceState: Boolean = false
+
     override fun powerOn() {
+        deviceState = true
         println("$name включено.")
     }
 
     override fun powerOff() {
+        deviceState = false
         println("$name выключено.")
     }
+
+    protected fun getDeviceState() = deviceState
 }
 
 //Задача 3. Создай абстрактный класс для программируемого оборудования (с имплементацией соответствующего интерфейса и реализацией методов) и наследуй его от абстрактного класса включаемого оборудования.
@@ -133,7 +150,7 @@ abstract class ProgrammableDevices(val arg: String, name: String) :
         }
     }
 
-    abstract fun deviceInfo()
+    protected fun currentDeviceAction() = currentAction
 }
 
 //Задача 4. Создай абстрактный класс оборудования с возможностью устанавливать температуру и открываться и с наследованием от программируемого оборудования. Также имплементируй интерфейсы.
