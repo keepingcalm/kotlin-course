@@ -53,5 +53,5 @@ fun <L : Number> mergeLists(list1: List<L>, list2: List<L>): List<Double> {
         val res = list1.getOrElse(i){0}.toDouble() + list2.getOrElse(i){0}.toDouble()
         result.add(res)
     }
-    return result
+    return result.toList()
 }
