@@ -7,8 +7,9 @@ import kotlin.math.absoluteValue
 // Если массив был пуст то вернуть пару из null значений.
 
 fun Array<Int>.firstAndLast(): Pair<Int?, Int?> {
-    if (this.isEmpty()) return Pair(null, null)
-    return Pair(this.first(), this.last())
+    if (this.isEmpty())
+        return Pair(null, null)
+        return Pair(this.first(), this.last())
 }
 
 //2 Создайте функцию-расширение для изменяемого списка элементов:
@@ -18,7 +19,8 @@ fun Array<Int>.firstAndLast(): Pair<Int?, Int?> {
 //сам изменяемый список при этом должен стать отсортированным по возрастанию, если в функцию передано true и по убыванию, если false (используем функции sort() и sortDescending()
 
 fun <T : Comparable<T>> MutableList<T>.sortedImmutable(asc: Boolean): List<T> {
-    if (asc) this.sort() else this.sortDescending()
+    if (asc) this.sort()
+    else this.sortDescending()
     return this.toList() // immutable
 }
 
@@ -27,7 +29,8 @@ fun <T : Comparable<T>> MutableList<T>.sortedImmutable(asc: Boolean): List<T> {
 //Значение является списком из дженериков
 //Принимает целое число
 //Возвращает nullable словарь из ключей изначального словаря приведённых к строке через toString()
-//Значений из nullable дженерика, взятых из изначального ключа-списка по индексу из аргумента, если такого индекса нет - значением будет null
+//Значений из nullable дженерика, взятых из изначального ключа-списка по индексу из аргумента,
+// если такого индекса нет - значением будет null
 
 fun <K, V> Map<K, List<V>>?.extractAt(index: Int): Map<String, V?>? {
     if (this == null) return null
@@ -41,7 +44,8 @@ fun <K, V> Map<K, List<V>>?.extractAt(index: Int): Map<String, V?>? {
 
 // 4 Реализуйте метод расширения within для класса Number, который проверяет, что текущее число отклоняется от эталонного
 // не более допустимого значения. Метод принимает два параметра: other — число для сравнения и deviation — максимально допустимое отклонение.
-// Метод должен возвращать true, если разница между текущим числом и числом для сравнения не превышает заданное отклонение. Протестируйте функцию на разных типах чисел.
+// Метод должен возвращать true, если разница между текущим числом и числом для сравнения не превышает заданное отклонение.
+// Протестируйте функцию на разных типах чисел.
 // Для получения отклонения, у разницы чисел нужно вызвать свойство absoluteValue.
 
 
@@ -108,4 +112,6 @@ fun main() {
     val word = "путлер"
 
     word.tweetStyle(users)
+
+    "test".toRegex()
 }
