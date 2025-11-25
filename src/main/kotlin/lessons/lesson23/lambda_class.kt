@@ -1,9 +1,51 @@
 package ru.kotlin.lessons.lesson23
 
-
 class OrderProcessor(val deliveryAddress: String)
 
-fun calculateDeliveryTime(productId: Int): String {
+fun test1() {
+    println("Hello there!")
+}
+
+val test2 = fun() {
+    println("Hello there!")
+}
+
+val test3: () -> Unit = { println("Hello there!") }
+
+val test4 = { println("Hello there!") }
+
+fun test5(string: String): Int {
+    return string.length
+}
+
+val test6 = fun(string: String): Int {
+    return string.length
+}
+
+val test7: (String) -> Int = { it.length }
+
+val test8 = { string: String -> string.length }
+
+fun String.test9(arg1: Int, char: Char): Boolean {
+    return length < arg1 && contains(char)
+}
+
+val test10 = fun String.(arg1: Int, char: Char): Boolean {
+    return length < arg1 && contains(char)
+}
+
+val test11: String.(Int, Char) -> Boolean = { arg1, char -> length < arg1 && contains(char) }
+
+fun <U> U.test12(arg2:U) {
+    println(arg2)
+}
+
+// для дженериков нельзя использовать лямбда выражения и анонимные функции
+//val test13 = fun <U> U.(arg2:U) {
+//    println(arg2)
+//}
+
+fun OrderProcessor.calculateDeliveryTime(productId: Int): String {
     val deliveryTimeDays = when (productId) {
         in 1..100 -> 3
         else -> 5
@@ -11,6 +53,12 @@ fun calculateDeliveryTime(productId: Int): String {
     return "Ожидаемая дата доставки: через $deliveryTimeDays дня(ей) по адресу $deliveryAddress."
 }
 
+fun findIndex(text: String, word: String, ignoreCase: Boolean = false): Int {
+    return text.indexOf(word, 0, ignoreCase)
+}
+
+fun String.qwe(d: Int) {
+}
 
 // Обычное объявление функции
 fun increment(a: Int): Int {
@@ -18,6 +66,9 @@ fun increment(a: Int): Int {
 }
 
 fun main() {
+    "ssafsdfs".test9(4, 'l')
+    test3()
+
     val calculateDeliveryTime1 = fun OrderProcessor.(productId: Int): String {
         val deliveryTimeDays = when (productId) {
             in 1..100 -> 3
@@ -38,7 +89,7 @@ fun main() {
     calculateDeliveryTime(op, 34)
 // или
     op.calculateDeliveryTime(34)
-    val t = {a: String ->
+    val t = { a: String ->
         a.isEmpty()
     }
     listOf<String>().find(t)
@@ -82,12 +133,5 @@ fun main() {
     println(increment(2))
     println(increment1(2))
     println(increment2(2))
-}
-
-fun findIndex(text: String, word: String, ignoreCase: Boolean = false): Int {
-    return text.indexOf(word, 0, ignoreCase)
-}
-
-fun String.qwe(d: Int) {
 }
 
