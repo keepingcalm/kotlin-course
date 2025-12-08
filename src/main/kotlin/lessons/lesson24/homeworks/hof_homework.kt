@@ -47,7 +47,31 @@ fun <T> T.home5(): (String) -> T {
     return { this }
 }
 
+// 6 Напиши функцию colorizeWords которая печатает слова из длинного предложения разбитого по пробелу разным цветом.
+// Правило подбора цвета для каждого слова нужно передавать в виде функции, которая принимает слово и возвращает это же слово но уже "в цвете" через функцию colorize.
+//Функция colorizeWords должна расширять строку и эту же строку и обрабатывать.
 
+object Colors {
+    const val RESET = "\u001B[0m"
+    const val RED = "\u001B[31m"
+    const val GREEN = "\u001B[32m"
+    const val YELLOW = "\u001B[33m"
+    const val BLUE = "\u001B[34m"
+    const val PURPLE = "\u001B[35m"
+    const val CYAN = "\u001B[36m"
+    const val WHITE = "\u001B[37m"
+}
+
+fun String.colorize(color: String): String {
+    return "$color$this${Colors.RESET}"
+}
+
+fun String.colorizeWords(transform: (String) -> String) {
+    this.split(" ").forEach { word ->
+        print(transform(word) + " ")
+    }
+    println()
+}
 
 fun main() {
     val result1 = home1(false) { message ->
