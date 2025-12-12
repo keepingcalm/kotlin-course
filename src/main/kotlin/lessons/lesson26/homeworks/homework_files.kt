@@ -24,8 +24,11 @@ fun main() {
 
     File("workspace/task2/testDir").run {
         mkdirs()
-        isDirectory
-        println(absolutePath)
+        if (isDirectory) {
+            println(absolutePath)
+        } else {
+            println("Is not directory")
+        }
     }
 
 
@@ -70,13 +73,15 @@ fun main() {
     }.also { tempDir ->
         File(tempDir, "subDir1/file3.txt").createNewFile()
     }
-//    File("workspace/task4").run {
-//        deleteRecursively()
-//        println("Директория workspace/task4 удалена со всем содержимым")
-//    }
+    File("workspace/task4").run {
+        deleteRecursively()
+        println("Dir workspace/task4 is deleted totally")
+    }
 
 //Задача 5
-//Создайте файл workspace/task5/config/config.txt. запишите в него список параметров (в формате ключ=значение), а затем прочитайте файл и выведите только значения.
+//Создайте файл workspace/task5/config/config.txt.
+// запишите в него список параметров (в формате ключ=значение),
+// затем прочитайте файл и выведите только значения.
 
     File("workspace/task5/config/config.txt").apply {
         parentFile?.mkdirs()
@@ -108,12 +113,12 @@ fun main() {
 
     File("workspace/task7/docs").resolve("readme.md").apply {
         if (exists() && isFile) {
+            check(readText() == "This is a README file.") { "Файл содержит неправильный текст!" }
             println(readText())
         } else {
             parentFile?.mkdirs()
             createNewFile()
             writeText("This is a README file.")
-            println(readText())
         }
     }
 //Задача 8
@@ -145,7 +150,6 @@ fun main() {
             }
         }
     val ex81 = File("workspace/task8/backup").apply { mkdirs() }
-
 
 
 }
