@@ -116,6 +116,38 @@ fun main() {
             println(readText())
         }
     }
+//Задача 8
+//workspace/task8/data/1/4/prod/data14.mysql
+//workspace/task8/data/2/3/prod/data23.mysql
+//workspace/task8/data/5/2/prod/data52.mysql
+//Создайте директорию workspace/task8/backup и скопируйте туда файлы из workspace/task8/data сохраняя структуру директорий.
+// Для копирования используй метод copyTo.
+// Для получения относительного пути начиная от data используй relativeTo от пути до файла,
+// передавая в него путь до базовой директории (то-есть data).
+// Полученный relative фрагмент можно присоединить к пути бэкапа через resolve
+// и таким образом получить путь назначения копирования, например workspace/task8/backup/1/4/prod/data14.mysql
+// сохраняя весь относительный путь.
+
+    val ex8 = File("workspace/task8/data/").apply { mkdirs() }
+        .also { dir ->
+            listOf(
+                "1/4/prod/data14.mysql",
+                "2/3/prod/data23.mysql",
+                "5/2/prod/data52.mysql"
+            ).forEach { fileName ->
+                dir.resolve(fileName).apply {
+                    parentFile?.mkdirs()
+                    if (!exists()) {
+                        createNewFile()
+                        writeText("This is $fileName file.")
+                    }
+                }
+            }
+        }
+    val ex81 = File("workspace/task8/backup").apply { mkdirs() }
+
+
+
 }
 
 
