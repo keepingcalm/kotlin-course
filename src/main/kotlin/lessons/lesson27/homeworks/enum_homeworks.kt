@@ -1,5 +1,7 @@
 package ru.kotlin.lessons.lesson27.homeworks
 
+import ru.kotlin.lessons.lesson27.homeworks.SolarSystem.entries
+
 // 1 Создай Enum со статусами прохождения теста (passed, broken, failed).
 enum class Statuses {
     PASSED,
@@ -34,15 +36,15 @@ enum class TypeProperty(val displayName: String) {
     HOUSE("dom"),
     APARTMENT("apartamenty"),
     ROOM("komnata"),
-    DORM("hostel"),
+    DORMITORIES("hostel"),
     ;
 
     // 2 Создай функцию, которая выводит на печать человекочитаемые названия типов недвижимости в порядке возрастания длины названия enum.
     companion object {
         fun ex2() {
             entries
-                .sortedByDescending { it.displayName.length }
-                .forEach { println(it.displayName) }
+                .sortedBy { it.name.length }
+                .forEach { println(it.name) }
         }
     }
 }
@@ -66,13 +68,12 @@ enum class SolarSystem(val distanceToTheSunInMlnKm: Int, val planetMassInEarthMa
 // который должен отфильтровать список всех планет по какому-либо признаку (расстояние или вес).
 // Вернуть нужно первый элемент из отфильтрованного списка или выкинуть исключение если список пустой.
 
-    companion object {
-        fun ex4(arg: (SolarSystem) -> Boolean): SolarSystem {
-            return entries
-                .firstOrNull(arg)
-                ?: throw NoSuchElementException("No planet matches the filter")
-        }
-    }
+}
+
+fun ex4(arg: (SolarSystem) -> Boolean): SolarSystem {
+    return entries
+        .firstOrNull(arg)
+        ?: throw NoSuchElementException("No planet matches the filter")
 }
 
 fun main() {
@@ -91,14 +92,14 @@ fun main() {
     }
     println(broken)
 
-    val planet4 = SolarSystem.ex4 { it.planetMassInEarthMass > 100 }
+    val planet4 = ex4 { it.planetMassInEarthMass > 100 }
     println("This planet is kinda heavy: $planet4")
 
-    val planet41 = SolarSystem.ex4 { it.distanceToTheSunInMlnKm > 2000 }
+    val planet41 = ex4 { it.distanceToTheSunInMlnKm > 2000 }
     println("This is kinda distant planet from Sun: $planet41")
 
-//    val planet42 = SolarSystem.ex4 { it.distanceToTheSunInMlnKm > 200000 }
-//    println("This is the most distant planet from Sun: $planet41")
+//    val planet42 = ex4 { it.distanceToTheSunInMlnKm > 200000 }
+//    println("This is the most distant planet from Sun: $planet42")
 }
 
 
