@@ -7,9 +7,10 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import java.time.Period
+import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoField
 import java.time.temporal.Temporal
 
 fun main() {
@@ -26,6 +27,30 @@ fun main() {
     val ex3 = Period.between(ex2, LocalDate.now())
     println(ex3) //  P37Y3M25D
     println(ex3.years) //  37
+
+// проверки для 4 и 5
+
+    val localDate = LocalDate.of(2024, 6, 10)
+    val localTime = LocalTime.of(14, 30, 45)
+    val localDateTime = LocalDateTime.of(2024, 6, 10, 14, 30, 45)
+
+    val offsetDateTime = OffsetDateTime.of(2024, 6, 10, 14, 30, 45, 0, ZoneOffset.ofHours(3))
+
+    val zonedDateTime = ZonedDateTime.of(2024, 6, 10, 14, 30, 45, 0, ZoneId.of("Europe/Moscow"))
+
+    println("=== Custom formatting ===")
+    ex4(localDate)
+    ex4(localTime)
+    ex4(localDateTime)
+    ex4(offsetDateTime)
+    ex4(zonedDateTime)
+
+    println("\n=== ISO formatting ===")
+    ex4ISO(localDate)
+    ex4ISO(localTime)
+    ex4ISO(localDateTime)
+    ex4ISO(offsetDateTime)
+    ex4ISO(zonedDateTime)
 
 
 // 7 Создай два объекта даты: 25 февраля 2023 года и 25 февраля 2024 года. Создай форматтер, который форматирует дату в месяц и день.
@@ -69,6 +94,17 @@ fun ex4(temporal: Temporal): String {
         DateTimeFormatter.ofPattern(it).format(temporal)
     }.also { println(it) }
 }
+
+
+fun ex4ISO(temporal: Temporal) =
+    when (temporal) {
+        is LocalDate -> DateTimeFormatter.ISO_LOCAL_DATE
+        is LocalTime -> DateTimeFormatter.ISO_LOCAL_TIME
+        is LocalDateTime -> DateTimeFormatter.ISO_LOCAL_DATE_TIME
+        is OffsetDateTime -> DateTimeFormatter.ISO_OFFSET_DATE_TIME
+        is ZonedDateTime -> DateTimeFormatter.ISO_ZONED_DATE_TIME
+        else -> throw IllegalArgumentException("Неизвестный тип Temporal: ${temporal::class}")
+    }.also { println(it) }
 
 
 // 6 Создайте функцию identifyGeneration, которая расширяет класс LocalDate и печатает строку, определяющую,
