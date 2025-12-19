@@ -28,12 +28,14 @@ fun main() {
     println(ex3.years) //  37
 
 
-// 7,8,9 Создай два объекта даты: 25 февраля 2023 года и 25 февраля 2024 года. Создай форматтер, который форматирует дату в месяц и день.
+// 7 Создай два объекта даты: 25 февраля 2023 года и 25 февраля 2024 года. Создай форматтер, который форматирует дату в месяц и день.
     val ex71 = LocalDate.of(2023, 2, 25)
-    val ex72 = LocalDate.of(2024, 2, 25) // високосный год
+    val ex72 = LocalDate.of(2024, 2, 25)
     val formatter7 = DateTimeFormatter.ofPattern("MM - dd")
+// 8 Выведи первую отформатированную дату, прибавив к ней 10 дней.
     println(ex71.plusDays(10).format(formatter7))
-    println(ex72.plusDays(10).format(formatter7))
+// 9  Выведи вторую отформатированную дату, прибавив к ней 10 дней. Найди отличия)))
+    println(ex72.plusDays(10).format(formatter7)) // високосный год
 
     val dates6 = listOf(
         LocalDate.of(1946, 1, 1),   // начало бумеров
