@@ -53,7 +53,9 @@ fun main() {
     ex4ISO(zonedDateTime)
 
 
-// 7 Создай два объекта даты: 25 февраля 2023 года и 25 февраля 2024 года. Создай форматтер, который форматирует дату в месяц и день.
+// 7 Создай два объекта даты:
+// 25 февраля 2023 года и 25 февраля 2024 года.
+// Создай форматтер, который форматирует дату в месяц и день.
     val ex71 = LocalDate.of(2023, 2, 25)
     val ex72 = LocalDate.of(2024, 2, 25)
     val formatter7 = DateTimeFormatter.ofPattern("MM - dd")
@@ -98,11 +100,11 @@ fun ex4(temporal: Temporal): String {
 
 fun ex4ISO(temporal: Temporal) =
     when (temporal) {
-        is LocalDate -> DateTimeFormatter.ISO_LOCAL_DATE
-        is LocalTime -> DateTimeFormatter.ISO_LOCAL_TIME
-        is LocalDateTime -> DateTimeFormatter.ISO_LOCAL_DATE_TIME
-        is OffsetDateTime -> DateTimeFormatter.ISO_OFFSET_DATE_TIME
-        is ZonedDateTime -> DateTimeFormatter.ISO_ZONED_DATE_TIME
+        is LocalDate -> DateTimeFormatter.ISO_LOCAL_DATE.format(temporal)
+        is LocalTime -> DateTimeFormatter.ISO_LOCAL_TIME.format(temporal)
+        is LocalDateTime -> DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(temporal)
+        is OffsetDateTime -> DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(temporal)
+        is ZonedDateTime -> DateTimeFormatter.ISO_ZONED_DATE_TIME.format(temporal)
         else -> throw IllegalArgumentException("Неизвестный тип Temporal: ${temporal::class}")
     }.also { println(it) }
 
