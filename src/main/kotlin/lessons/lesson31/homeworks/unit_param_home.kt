@@ -1,4 +1,4 @@
-package ru.kotlin.lessons.lesson31
+package ru.kotlin.lessons.lesson31.homeworks
 
 class PhoneNumberFormatter {
 

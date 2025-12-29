@@ -3,7 +3,7 @@ package lesson31.homeworks
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
-import ru.kotlin.lessons.lesson31.PhoneNumberFormatter
+import ru.kotlin.lessons.lesson31.homeworks.PhoneNumberFormatter
 import org.junit.jupiter.params.provider.ValueSource
 import org.junit.jupiter.api.Assertions.assertThrows
 
