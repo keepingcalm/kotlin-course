@@ -106,10 +106,10 @@ fun String.copyTo(targetPath: String) {
 //
 //}
 //
-//fun searchFilesUsingWalk(startDir: String, query: String): List<String> {
-//    return File(startDir)
-//        .walk() // Рекурсивный обход файлов и директорий начиная с startDir
-//        .filter { it.isFile && it.name.contains(query, ignoreCase = true) } // Фильтрация по имени файла
-//        .map { it.absolutePath } // Преобразование результатов в абсолютные пути
-//        .toList() // Сбор результатов в список
-//}
+fun searchFilesUsingWalk(startDir: String, query: String): List<String> {
+    return File(startDir)
+        .walk() // Рекурсивный обход файлов и директорий начиная с startDir
+        .filter { it.isFile && it.name.contains(query, ignoreCase = true) } // Фильтрация по имени файла
+        .map { it.absolutePath } // Преобразование результатов в абсолютные пути
+        .toList() // Сбор результатов в список
+}
