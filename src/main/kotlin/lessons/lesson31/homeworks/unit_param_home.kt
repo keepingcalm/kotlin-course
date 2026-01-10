@@ -31,3 +31,5 @@ class PhoneNumberFormatter {
         return "+7 ($areaCode) $firstPart-$secondPart-$thirdPart"
     }
 }
+
+// тест
